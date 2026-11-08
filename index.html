@@ -6,6 +6,18 @@
   <title>المزاز | اختيارك الصحي</title>
   <link rel="icon" href="assets/brand.jpg"><link rel="stylesheet" href="styles.css">
   <script src="config.js" defer></script><script src="catalog.js" defer></script><script src="icons.js" defer></script><script src="app.js" defer></script>
+<style>
+html,body{overflow:hidden!important;height:100%!important}
+body>*:not(#forsale){filter:blur(10px);pointer-events:none!important;user-select:none}
+#forsale{position:fixed;inset:0;z-index:2147483647;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(23,62,41,.35);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);font-family:inherit;direction:rtl}
+#forsale .card{max-width:440px;width:100%;background:#faf6ea;color:#173e29;border-radius:28px;padding:36px 28px;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+#forsale .tag{display:inline-block;background:#ff8f2b;color:#173e29;font-weight:800;border-radius:999px;padding:8px 18px;font-size:15px;margin-bottom:18px}
+#forsale h2{font-size:30px;line-height:1.35;margin:0 0 12px;font-weight:800}
+#forsale .dom{direction:ltr;display:block;font-size:22px;font-weight:800;color:#d2691e;margin:6px 0 16px;word-break:break-all}
+#forsale p{font-size:16px;line-height:1.8;margin:0 0 24px;color:#3d5a49}
+#forsale a.wa{display:flex;align-items:center;justify-content:center;gap:10px;background:#25d366;color:#fff;text-decoration:none;font-weight:800;font-size:18px;border-radius:16px;padding:16px}
+#forsale .num{direction:ltr;display:block;margin-top:12px;font-size:15px;color:#3d5a49}
+</style>
 </head>
 <body>
 <a class="skip" href="#menu">انتقل إلى المنيو</a>
@@ -45,4 +57,17 @@
 <dialog id="product-dialog" aria-labelledby="product-title"><form id="product-form"><div class="dialog-heading"><span class="eyebrow">على ذوقك</span><button type="button" class="close" data-close="product-dialog" aria-label="إغلاق تخصيص الوجبة">×</button></div><h2 id="product-title"></h2><p id="product-base" class="muted"></p><div id="food-options"><fieldset><legend>كمّل طلبك <small>اختياري</small></legend><div id="extras" class="extras"></div></fieldset><fieldset><legend>خلّها كومبو <small>+8 ر.س</small></legend><div class="combo-choices"><label><input type="radio" name="combo" value="none" checked> بدون كومبو</label><label><input type="radio" name="combo" value="juice"> عصير</label><label><input type="radio" name="combo" value="salad"> سلطة اليوم</label></div><p class="combo-note">إذا اخترت عصيرًا، اكتب النوع المفضل في الملاحظات لتأكيده مع المطعم.</p></fieldset></div><p id="plan-warning" class="notice" hidden>تضاف الباقة إلى ملخص الطلب. يُؤكّد المطعم الأصناف المشمولة ومدة الصلاحية قبل الاشتراك.</p><label class="note-label" for="product-note">ملاحظات على الطلب <small>اختياري</small></label><textarea id="product-note" rows="2" maxlength="300" placeholder="نوع الصوص، تفضيلاتك أو تفاصيل تختارها مع المطعم…"></textarea><div class="product-bottom"><div class="quantity"><button type="button" id="qty-minus" aria-label="تقليل الكمية">−</button><output id="product-qty">1</output><button type="button" id="qty-plus" aria-label="زيادة الكمية">+</button></div><button class="button green" type="submit">أضف للسلة <span id="product-total" aria-live="polite"></span></button></div></form></dialog>
 <dialog id="cart-dialog" class="cart-dialog" aria-labelledby="cart-title"><div class="dialog-heading"><h2 id="cart-title">سلتك <span>✳</span></h2><button class="close" data-close="cart-dialog" aria-label="إغلاق السلة">×</button></div><div id="cart-items"></div><div id="cart-summary"><div class="cart-total"><span>الإجمالي</span><b id="cart-total"></b></div><p class="muted small">الأسعار تشمل الضريبة. رسوم التوصيل إن وجدت تُؤكّد مع المطعم، ولا تُضاف في هذا النموذج.</p><label class="note-label" for="order-notes">ملاحظات الطلب</label><textarea id="order-notes" maxlength="500" rows="2" placeholder="اكتب أي تفاصيل إضافية…"></textarea><button class="button green full" id="whatsapp-order" hidden>متابعة الطلب عبر واتساب <span>↗</span></button><div class="checkout-links"><a href="tel:+966543556997">اتصل بالمطعم</a><button id="download-order">حفظ الطلب</button><button id="copy-order">نسخ ملخص الطلب</button></div><button id="pay-order" class="button orange full" hidden>الدفع الإلكتروني</button><p id="checkout-status" class="notice">راجع طلبك، ثم افتح واتساب لإرساله وتأكيد التوفر مع المطعم.</p><a class="external-order" href="https://jahez.link/gFAwtMr0xUb" target="_blank" rel="noopener">اطلب عبر جاهز ↗ <small>طلب منفصل؛ لا تنتقل إليه محتويات هذه السلة</small></a><textarea id="copy-fallback" aria-label="ملخص الطلب للنسخ اليدوي" readonly hidden></textarea></div></dialog>
 <div id="toast" role="status" aria-live="polite"></div>
+<div id="forsale" role="dialog" aria-modal="true" aria-label="الموقع والدومين للبيع">
+  <div class="card">
+    <span class="tag">للبيع</span>
+    <h2>الموقع والدومين للبيع</h2>
+    <span class="dom">almazaz.com</span>
+    <p>موقع جاهز بالكامل مع الدومين. للاستفسار والشراء تواصل معنا على الواتساب.</p>
+    <a class="wa" href="https://wa.me/966532887247?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A8%D8%AE%D8%B5%D9%88%D8%B5%20%D9%85%D9%88%D9%82%D8%B9%20%D9%88%D8%AF%D9%88%D9%85%D9%8A%D9%86%20almazaz.com" target="_blank" rel="noopener">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1a17 17 0 0 1-1.7-.6 13.4 13.4 0 0 1-5.1-4.5c-.4-.5-1.2-1.6-1.2-3.1s.8-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.6 2.1 1.1 1 2.1 1.3 2.4 1.4.3.2.5.1.6 0l.9-1.1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.1.1.7-.2 1.4Z"/></svg>
+      تواصل عبر الواتساب
+    </a>
+    <span class="num">+966 53 288 7247</span>
+  </div>
+</div>
 </body></html>
